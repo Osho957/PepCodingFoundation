@@ -23,29 +23,30 @@ public class DiffrenceOfTwoArray {
 	     int i = a1.length - 1;
 	     int j = a2.length - 1;
 	     int carry = 0;
-	     while (j >= 0)
+	     int k = diff.length-1;
+	     while (k >= 0)
 	     {
-	       int digit = 0;
-	       int a1v = i >= 0 ? a1[i] : 0;
-	       if (a2[j] + carry >= a1v)
-	       {
-	         digit = a2[j] + carry - a1v;
-	         carry = 0;
-	       }
-	       else
-	       {
-	         digit = a2[j] + 10 + carry - a1v;
-	         carry = -1;
-	       }
-	       diff[j] = digit;
+	      int digit = a2[j]-carry;
+	      if(i>=0) {
+	    	  digit -=a1[i]; 
+	      }
+	      if(digit>=0) {
+	    	  carry =0;
+	      }else {
+	    	  digit+=10;
+	    	  carry=1;
+	      }
+	      diff[k]=digit;
 	       i--;
 	       j--;
+	       k--;
+	       
 	     }
 	     int idx = 0;
 	  
 	     while (diff[idx] == 0)
 	     {
-	       ++idx;
+	       idx++;
 	     }
 	     while (idx < diff.length) 
 	     {
