@@ -1,0 +1,10 @@
+package FunctionAndArray;
+
+public class SubArrayProblem {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
