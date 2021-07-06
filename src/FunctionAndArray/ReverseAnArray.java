@@ -4,12 +4,26 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class ReverseAnArray {
+	
+	  public static void display(int[] a){
+		    StringBuilder sb = new StringBuilder();
+
+		    for(int val: a){
+		      sb.append(val + " ");
+		    }
+		    System.out.println(sb);
+		  }
+
 
 	 public static void reverse(int[] a){
-	      int n = a.length;
-	    for(int i=n-1;i>=0;i--){
-	        System.out.print(a[i]+" ");
-	    }System.out.println();
+	    int i=0; int j = a.length-1;
+	    while(i<j) {
+	    	int temp = a[i];
+	    	a[i]=a[j];
+	    	a[j]=temp;
+	    	i++;
+	    	j--;
+	    }
 	  }
 
 	public static void main(String[] args) throws Exception {
@@ -22,6 +36,7 @@ public class ReverseAnArray {
 	    }
 
 	    reverse(a);
+	    display(a);
 	    
 	 }
 
