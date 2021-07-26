@@ -9,6 +9,8 @@ public class GetKpc {
     public static void main(String[] args) throws Exception {
             Scanner sc = new Scanner(System.in);
             String  s= sc.next();
+            System.out.println((int)('a'));
+            System.out.println((char)('a' -1));
             ArrayList<String> ans = getKPC(s);
             System.out.println(ans);
             

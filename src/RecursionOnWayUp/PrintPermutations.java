@@ -6,6 +6,11 @@ public class PrintPermutations {
 
     public static void main(String[] args) throws Exception {
         Scanner sc  = new Scanner(System.in);
+        
+        String x = "abc";
+        for (int i = 0; i <= x.length(); i++) {
+			System.out.println(x.substring(0,i)+" "+i);
+		}
             String s = sc.next();
             printPermutations(s, "");
         
