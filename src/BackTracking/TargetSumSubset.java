@@ -20,14 +20,13 @@ public class TargetSumSubset {
     // tar is target
     public static void printTargetSumSubsets(int[] arr, int idx, String set, int sos, int tar) {
         
-      if(sos > tar){
-            return;
-        }
-
         if(idx == arr.length){
             if(sos == tar){
                 System.out.println(set + ".");
             }
+            return;
+        }
+        if(sos > tar){
             return;
         }
        // yes ki call
