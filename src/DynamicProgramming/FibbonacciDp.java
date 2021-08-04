@@ -10,7 +10,7 @@ public class FibbonacciDp {
 	    int ans = fibbDp(n,new int[n+1]);
 	    System.out.println(ans);
 	 }
-	 
+	 // recursive approach
 	 public static int fibbrecursive(int n){
 	     
 	     if(n==0||n==1){
@@ -19,7 +19,7 @@ public class FibbonacciDp {
 	     
 	     return fibbrecursive(n-1)+fibbrecursive(n-2);
 	 }
-	 
+	 // dp approach
 	 public static int fibbDp(int n,int a[]){
 	     
 	     if(n==0||n==1){
@@ -33,4 +33,16 @@ public class FibbonacciDp {
 	     a[n]=ans;
 	     return ans;
 	 }
+	 // tabulation technique
+	   public static int effic(int n) {
+	    	int a[] = new int[2];
+	    	a[0]=0;
+	    	a[1]=1;
+	    	for(int i=1;i<n;i++) {
+	    		int sum =a[0]+a[1];
+	    		a[0]=a[1];
+	    		a[1]=sum;
+	    	}
+	    	return a[1];
+	    }
 }
