@@ -1,7 +1,6 @@
 package DynamicProgramming;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class GoldMine {
 
@@ -31,6 +30,8 @@ public class GoldMine {
 	   // int max = goldMine(arr);
 	    System.out.println(max);
 	  }
+	
+	// BottomUp Approach
 
 	  public static int goldMine(int arr[][]) {
 	    int dp[][] = new int[arr.length][arr[0].length];
@@ -58,6 +59,7 @@ public class GoldMine {
 	    return max;
 	  }
 	  
+	  //Recursive Approach
 	  
 	  public static int goldmineRec (int arr[][],int sr , int sc) {
 		  
@@ -79,27 +81,28 @@ public class GoldMine {
 	
 	  }
 	  
-      public static int goldmineTd (int arr[][],int sr , int sc,int dp[][]) {
-		  
-		  if(sr<0||sr>=arr.length) {
-			  return Integer.MIN_VALUE;
+	  //TopDown Approach
+	  
+	    public static int goldmineTd (int arr[][],int sr , int sc,int dp[][]) {
+			  
+			  if(sr<0||sr>=arr.length) {
+				  return Integer.MIN_VALUE;
+			  }
+			  
+			  if(sc==arr[0].length-1) {
+				  return arr[sr][sc];
+			  }
+			  if(dp[sr][sc]!=-1) {
+				  return dp[sr][sc];
+			  }
+			  
+			  int way1 = goldmineTd(arr, sr-1, sc+1,dp);
+			  int way2 = goldmineTd(arr, sr, sc+1,dp);
+			  int way3 = goldmineTd(arr, sr+1, sc+1,dp);
+			  
+			  int ans = arr[sr][sc] + Math.max(way1, Math.max(way2, way3));
+			  dp[sr][sc]= ans;
+			  return ans;
 		  }
-		  
-		  if(sc==arr[0].length-1) {
-			  return arr[sr][sc];
-		  }
-		  if(dp[sr][sc]!=-1) {
-			  return dp[sr][sc];
-		  }
-		  
-		  int way1 = goldmineRec(arr, sr-1, sc+1);
-		  int way2 = goldmineRec(arr, sr, sc+1);
-		  int way3 = goldmineRec(arr, sr+1, sc+1);
-		  
-		  int ans = arr[sr][sc] + Math.max(way1, Math.max(way2, way3));
-		  dp[sr][sc]= ans;
-		  return ans;
-	  }
-
 
 }
