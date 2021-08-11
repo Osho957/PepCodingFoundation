@@ -20,16 +20,17 @@ public class CountVariableStairs {
 
 	private static int climbstair(int[] a, int i) {
 		// TODO Auto-generated method stub
-		if(i==a.length) {
+		if(i==a.length){
 			return 1;
 		}
-		if(i>a.length) {
+		if(i>a.length){
 			return 0;
 		}
 		
 		int ans=0;
-		for (int jump = 1; jump <= a[i]; jump++) {
-			ans+=climbstair(a, i+jump);
+		
+		for (int jump = 1; jump <= a[i]; jump++){
+			ans+=climbstair(a, i+jump);	
 		}
 		
 		return ans;
@@ -52,6 +53,7 @@ public class CountVariableStairs {
 			ans+=climbstairTd(a, i+jump,dp);
 		}
 		dp[i]=ans;
+		
 		return ans;
 	}
 	
