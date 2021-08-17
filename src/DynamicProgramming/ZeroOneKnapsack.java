@@ -16,8 +16,8 @@ public class ZeroOneKnapsack {
        for (int i = 0; i < b.length; i++) {
 		b[i]= sc.nextInt();
 	}
-       int cap = sc.nextInt();
-       int dp[][] = new int[n+1][cap+1];
+       int capacity = sc.nextInt();
+       int dp[][] = new int[n+1][capacity+1];
        for (int i = 1; i < dp.length; i++) {
 		for (int j = 1; j < dp[0].length; j++) {
 			if(j-b[i-1]>=0) {
@@ -27,7 +27,7 @@ public class ZeroOneKnapsack {
 			}
 		}
 	}
-       System.out.println(dp[n][cap]);
+       System.out.println(dp[n][capacity]);
 	}
 
 }
